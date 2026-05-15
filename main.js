@@ -34,6 +34,14 @@ function createWindow () {
 	// }));
 	mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
+	// Auto-load point cloud passed as CLI argument: npx electron . /path/to/metadata.json
+	mainWindow.webContents.on('did-finish-load', () => {
+		const args = process.argv.slice(2).filter(a => !a.startsWith('--'));
+		if (args.length > 0) {
+			mainWindow.webContents.send('load-pointcloud', args[0]);
+		}
+	});
+
 
 	//let menu = new Menu();
 	//let menuItemWindow = new MenuItem({label: "Window"});

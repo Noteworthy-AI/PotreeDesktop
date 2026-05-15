@@ -190,7 +190,7 @@ export function convert_20(inputPaths, chosenPath, pointcloudName){
 		exe = './libs/PotreeConverter2/win/PotreeConverter.exe';
 	} if (isMac){
 		if	(arch === 'arm64'){ 
-			exe = './libs/PotreeConverter2/mac/apple/PotreeConverter';
+			exe = './libs/PotreeConverter2/mac/apple_m2/PotreeConverter';
 		}
 	}
 
