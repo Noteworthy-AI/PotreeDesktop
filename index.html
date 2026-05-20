@@ -161,6 +161,13 @@
 			});
 		}
 
+		{
+			const { ipcRenderer } = require('electron');
+			ipcRenderer.on('load-pointcloud', (event, filePath) => {
+				loadDroppedPointcloud(filePath);
+			});
+		}
+
 		let elBody = document.body;
 
 		elBody.addEventListener("dragenter", dragEnter, false);
